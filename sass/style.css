@@ -103,3 +103,38 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.tag-size-1 {
+  font-size: 14px;
+  display: inline;
+  text-decoration: none;
+  color: skyblue;
+}
+
+.tag-size-2 {
+  font-size: 18px;
+  display: inline;
+  text-decoration: none;
+  color: darkorchid;
+}
+
+.tag-size-3 {
+  font-size: 22px;
+  display: inline;
+  text-decoration: none;
+  color: darkorchid;
+}
+
+.tag-size-4 {
+  font-size: 26px;
+  display: inline;
+  text-decoration: none;
+  color: darkorchid;
+}
+
+.tag-size-5 {
+  font-size: 30px;
+  display: inline;
+  text-decoration: none;
+  color: blue;
+}
