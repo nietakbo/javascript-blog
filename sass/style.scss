@@ -116,10 +116,13 @@ body {
   display: flex;
   p {
     margin: 0 10px 0 0;
+    text-decoration: none;
   }
+
 }
 
-.tag-size-1{
+.sidebar .tags{
+  .tag-size-1{
   font-size:14px;
   display: inline;
   text-decoration: none;
@@ -149,4 +152,5 @@ body {
   display: inline;
   text-decoration: none;
   color:blue;
+}
 }

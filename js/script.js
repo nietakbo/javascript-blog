@@ -45,11 +45,11 @@ const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
   optArticleTagsSelector='.post-tags .list',
-  optAritcleAuthor='.post-author',
+  optAritcleAuthorSelector='.post-author',
   optTagsListSelector='.tags.list',
   optCloudClassCount='5',
   optCloudClassPrefix='tag-size-',
-  optAuthorListSelector='.list.authors';
+  optAuthorListSelector='.authors';
 
 const generateTitleLinks = function(customSelector = ''){
   /* remove contents of titleList */
@@ -214,37 +214,36 @@ const generateTags = function(){
     }
   };
 
-  const generateAuthors = function(){
-    let allAuthors={};
-    const articles = document.querySelectorAll(optArticleSelector);
-    const authorList = document.querySelector(optAuthorListSelector);
+const generateAuthors = function(){
+  let allAuthors={};
+
+  const articles = document.querySelectorAll(optArticleSelector);
   for(let article of articles){
 
-    const authorsList = article.querySelector(optAritcleAuthor);
+    const authorsList = article.querySelector(optAritcleAuthorSelector);
     let html = '';
     const articleAuthor = article.getAttribute('data-author');
     const linkHTML = '<p>by <a href="#author-'+ articleAuthor +'"><span>' + articleAuthor + '</span></a></p>';
     console.log(linkHTML);
-
     html = html + linkHTML;
     authorsList.innerHTML = html;
-
-
-    if(!allAuthors[article]) {
-      allAuthors[article] = 1;
+    if(!allAuthors[articleAuthor]) {
+      allAuthors[articleAuthor] = 1;
     }
     else {
-      allAuthors[article]++;
-    }    
-    const authorsParams=calculateTagsParams(allAuthors);
+      allAuthors[articleAuthor]++;
+    }   
+ 
+  }
+    const authorList = document.querySelector(optAuthorListSelector);
+    const authorParams = calculateTagsParams(allAuthors);
     let allAuthorsHTML='';
     for(let author in allAuthors){
-    const authorLinkHTML='<a href="#" class="' + calculateTagClass(allAuthors[author], authorsParams) + '">'+ author +' '+'</a>';
+    const authorLinkHTML='<li><a href="#" class="'+calculateTagClass(allAuthors[author], authorParams)+'">'+ author + '(' + allAuthors[author]+ ') </a></li> ';
+    console.log('authorLinkHTML:',authorLinkHTML);
       allAuthorsHTML += authorLinkHTML;
     }
     authorList.innerHTML = allAuthorsHTML;
-
-    }
   };
 
 
