@@ -177,6 +177,7 @@ const generateTags = function(){
     // console.log('tagLinkHTML:', tagLinkHTML);
 
     allTagsData.tags.push({
+      id:tag,
       tag: tag,
       count: allTags[tag],
       className: calculateTagClass(allTags[tag], tagsParams)
@@ -258,6 +259,7 @@ const generateAuthors = function(){
     const allAuthorsData = {authors: []};
     for(let author in allAuthors){
       allAuthorsData.authors.push({
+        id:author,
         tag: author,
         count: allAuthors[author],
         className: calculateTagClass(allAuthors[author], authorParams)
